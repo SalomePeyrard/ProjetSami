@@ -1,34 +1,32 @@
-import pygame
 
+
+from coordinates import Coordinates
 from image import Image
 
-
 class Wall:
-    __x: int
-    __y: int
+    __coordinates:Coordinates
     __image: Image
 
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.Coordinates = Coordinates(x, y)
         self.image = Image(0, 0, "./image/murpetitnoir.png")
 
     @property
     def X(self):
-        return self.__x
+        return self.Coordinates.X
 
     @X.setter
     def X(self, value):
-        self.__x = value
+        self.Coordinates.X = value
 
 
     @property
     def Y(self):
-        return self.__y
+        return self.Coordinates.Y
 
     @Y.setter
     def Y(self, value):
-        self.__y = value
+        self.Coordinates.Y = value
 
     def drawWall(self,screen,x,y):
         return screen.blit(self.image.load(), (x,y))

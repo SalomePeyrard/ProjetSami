@@ -1,34 +1,34 @@
 
 import pygame
+
+from coordinates import Coordinates
 from image import Image
 
 
 class Player:
-    __x: int
-    __y: int
+    __coordinates: Coordinates
     __image: Image
 
     def __init__(self, x, y):
-        self.__x = x
-        self.__y = y
+        self.__coordinates = Coordinates(x, y)
         self.__image = Image(0, 0, "./image/sami.png")
 
 
     @property
     def X(self):
-        return self.__x
+        return self.__coordinates.X
 
     @X.setter
     def X(self, value):
-        self.__x = value
+        self.__coordinates.X = value
 
     @property
     def Y(self):
-        return self.__y
+        return self.__coordinates.Y
 
     @Y.setter
     def Y(self, value):
-        self.__y = value
+        self.__coordinates.Y = value
 
     def drawPlayer(self, screen, x, y):
         return screen.blit(self.__image.load(), (x, y))
